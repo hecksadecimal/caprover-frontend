@@ -1,5 +1,5 @@
 import { Checkbox, Col, Input, Row } from 'antd'
-import React, { Component } from 'react'
+import { Component } from 'react'
 import Utils from '../../utils/Utils'
 import PasswordField from '../global/PasswordField'
 
@@ -177,6 +177,52 @@ export default class NetDataSettingsForm extends Component<{
                                         self.changeModel(
                                             'smtp',
                                             'password',
+                                            e.target.value
+                                        )
+                                    }
+                                />
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+                <br />
+                <h4>Discord</h4>
+                <Row justify="center">
+                    <Col xs={{ span: 24 }} lg={{ span: 20 }}>
+                        <Row gutter={20} align="middle">
+                            <Col
+                                className="netdata-field"
+                                xs={{ span: 24 }}
+                                lg={{ span: 12 }}
+                            >
+                                Discord Webhook
+                                <Input
+                                    type="text"
+                                    placeholder="https://discord.com/api/webhooks/XXXX"
+                                    value={netDataInfo.data.discord.hook}
+                                    onChange={(e) =>
+                                        self.changeModel(
+                                            'discord',
+                                            'hook',
+                                            e.target.value
+                                        )
+                                    }
+                                />
+                            </Col>
+                            <Col
+                                className="netdata-field"
+                                xs={{ span: 24 }}
+                                lg={{ span: 12 }}
+                            >
+                                Discord Channel
+                                <Input
+                                    type="text"
+                                    placeholder="alertschannel"
+                                    value={netDataInfo.data.discord.channel}
+                                    onChange={(e) =>
+                                        self.changeModel(
+                                            'discord',
+                                            'channel',
                                             e.target.value
                                         )
                                     }
